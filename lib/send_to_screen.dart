@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen/pick_up_Address.dart';
 import 'payment_screen.dart';
 
 class SendToScreen extends StatefulWidget {
@@ -148,32 +149,33 @@ class _SendToScreenState extends State<SendToScreen> {
             SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  if (toState != null &&
-                      toCity != null &&
-                      toPincodeController.text.isNotEmpty &&
-                      itemType != null &&
-                      weightController.text.isNotEmpty &&
-                      lengthController.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaymentScreen(
-                          toState: toState!,
-                          toCity: toCity!,
-                          toPincode: toPincodeController.text,
-                          itemType: itemType!,
-                          weight: weightController.text,
-                          length: lengthController.text,
+                  onPressed: () {
+                    if (toState != null &&
+                        toCity != null &&
+                        toPincodeController.text.isNotEmpty &&
+                        itemType != null &&
+                        weightController.text.isNotEmpty &&
+                        lengthController.text.isNotEmpty) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PickupAddressScreen(
+                            toState: toState!,
+                            toCity: toCity!,
+                            toPincode: toPincodeController.text,
+                            itemType: itemType!,
+                            weight: weightController.text,
+                            length: lengthController.text,
+                          ),
                         ),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Please fill all the fields')),
-                    );
-                  }
-                },
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please fill all the fields')),
+                      );
+                    }
+                  },
+
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade400, // Button color
                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),

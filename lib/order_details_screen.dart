@@ -78,11 +78,15 @@ class OrderDetailsScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
+                    fixedSize: Size(150, 50), // Adjusted size
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text('Delivery Completed'),
+                  child: Text(
+                    'Delivery Completed',
+                    style: TextStyle(fontSize: 14),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -93,11 +97,15 @@ class OrderDetailsScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
+                    fixedSize: Size(150, 50), // Adjusted size
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: Text('Delivery Rejected'),
+                  child: Text(
+                    'Delivery Rejected',
+                    style: TextStyle(fontSize: 14),
+                  ),
                 ),
               ],
             ),
