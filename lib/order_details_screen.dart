@@ -66,45 +66,53 @@ class OrderDetailsScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Column(
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Delivery Completed!')),
-                    );
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    fixedSize: Size(150, 50), // Adjusted size
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                // Delivery Completed Button
+                SizedBox(
+                  width: double.infinity, // Full width
+                  child: ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Delivery Completed!')),
+                      );
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red.shade400, // AppBar text color
+                      fixedSize: Size(double.infinity, 50), // Full width
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Delivery Completed',
-                    style: TextStyle(fontSize: 14),
+                    child: Text(
+                      'Delivery Completed',
+                      style: TextStyle(fontSize: 14, color: Colors.black), // Text color black
+                    ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Delivery Rejected!')),
-                    );
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    fixedSize: Size(150, 50), // Adjusted size
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                SizedBox(height: 20), // Space between the buttons
+                // Delivery Rejected Button
+                SizedBox(
+                  width: double.infinity, // Full width
+                  child: ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Delivery Rejected!')),
+                      );
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red.shade400, // AppBar text color
+                      fixedSize: Size(double.infinity, 50), // Full width
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Delivery Rejected',
-                    style: TextStyle(fontSize: 14),
+                    child: Text(
+                      'Delivery Rejected',
+                      style: TextStyle(fontSize: 14, color: Colors.black), // Text color black
+                    ),
                   ),
                 ),
               ],

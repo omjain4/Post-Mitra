@@ -10,7 +10,7 @@ class PriceListScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.orange.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.red.shade400,
         title: Text('Price list for parcel'),
       ),
       body: Padding(
@@ -52,10 +52,11 @@ class PriceListScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow,
+                backgroundColor: Colors.white,
                 minimumSize: Size(double.infinity, 50),
                 shadowColor: Colors.grey.shade500,
                 elevation: 5,
+                side: BorderSide(color: Colors.redAccent),
               ),
               child: Text(
                 'Confirm',

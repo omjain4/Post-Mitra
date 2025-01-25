@@ -17,7 +17,7 @@ class _UpdateDeliveryDateScreenState extends State<UpdateDeliveryDateScreen> {
     return Scaffold(
       backgroundColor: Colors.orange.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.red.shade300,
         title: Text('Update Delivery Date'),
       ),
       body: Padding(
@@ -98,10 +98,11 @@ class _UpdateDeliveryDateScreenState extends State<UpdateDeliveryDateScreen> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow,
+                backgroundColor: Colors.white,
                 minimumSize: Size(double.infinity, 50),
                 shadowColor: Colors.grey.shade500,
                 elevation: 5,
+                side: BorderSide(color: Colors.redAccent),
               ),
               child: Text(
                 'Confirm delivery date',

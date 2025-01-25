@@ -25,12 +25,12 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
           'Send Parcel',
           style: TextStyle(color: Colors.red.shade400),
         ),
-        backgroundColor: Colors.orange.shade50,
+        backgroundColor: Colors.orange.shade50,  // Keep consistent with previous pages
         iconTheme: IconThemeData(color: Colors.red.shade400),
         elevation: 0,
       ),
       body: Container(
-        color: Colors.orange.shade50,
+        color: Colors.orange.shade50, // Consistent background color
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
@@ -39,6 +39,7 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Heading
                     Text(
                       'Send From',
                       style: TextStyle(
@@ -48,6 +49,8 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                       ),
                     ),
                     SizedBox(height: 20),
+
+                    // Select State Dropdown
                     Text(
                       'Select State:',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -65,11 +68,13 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedState = value;
-                          selectedCity = null;
+                          selectedCity = null;  // Reset city when state is changed
                         });
                       },
                     ),
                     SizedBox(height: 20),
+
+                    // Select City Dropdown
                     Text(
                       'Select City:',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -93,6 +98,8 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                       },
                     ),
                     SizedBox(height: 20),
+
+                    // Pincode Input Field
                     Text(
                       'Enter Pincode:',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -113,10 +120,14 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                 ),
               ),
             ),
+
             SizedBox(height: 20),
+
+            // Next Button
             Center(
               child: ElevatedButton(
                 onPressed: () {
+                  // Validation: Ensure all fields are filled
                   if (selectedState != null &&
                       selectedCity != null &&
                       pincodeController.text.isNotEmpty) {
@@ -131,6 +142,7 @@ class _SendParcelScreenState extends State<SendParcelScreen> {
                       ),
                     );
                   } else {
+                    // Show Snackbar if any field is empty
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Please fill all the fields'),

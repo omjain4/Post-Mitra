@@ -7,9 +7,9 @@ class UpcomingDeliveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange.shade50,
+      backgroundColor: Colors.orange.shade50, // Updated to match previous page's background
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.red.shade300, // Updated to match previous page's AppBar color
         title: Text('Upcoming Delivery'),
       ),
       body: Center(
@@ -28,10 +28,11 @@ class UpcomingDeliveryScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 50),
                   shadowColor: Colors.grey.shade500,
                   elevation: 5,
+                  side: BorderSide(color: Colors.redAccent), // Added border to match previous theme
                 ),
                 child: Text(
                   'Update delivery time slot',
@@ -49,10 +50,11 @@ class UpcomingDeliveryScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 50),
                   shadowColor: Colors.grey.shade500,
                   elevation: 5,
+                  side: BorderSide(color: Colors.redAccent), // Added border to match previous theme
                 ),
                 child: Text(
                   'Update delivery date',
@@ -70,10 +72,11 @@ class UpcomingDeliveryScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 50),
                   shadowColor: Colors.grey.shade500,
                   elevation: 5,
+                  side: BorderSide(color: Colors.redAccent), // Added border to match previous theme
                 ),
                 child: Text(
                   'Update address',

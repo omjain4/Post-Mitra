@@ -46,143 +46,236 @@ class _SendToScreenState extends State<SendToScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        color: Colors.orange.shade50,
         padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Send To',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.red.shade400, // Heading color
-              ),
-            ),
-            DropdownButton<String>(
-              value: toState,
-              hint: Text('Select State'),
-              items: stateCityMap.keys.map((state) {
-                return DropdownMenuItem(
-                  value: state,
-                  child: Text(state),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  toState = value;
-                  toCity = null;
-                });
-              },
-            ),
-            DropdownButton<String>(
-              value: toCity,
-              hint: Text('Select City'),
-              items: toState == null
-                  ? []
-                  : stateCityMap[toState]!.map((city) {
-                return DropdownMenuItem(
-                  value: city,
-                  child: Text(city),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  toCity = value;
-                });
-              },
-            ),
-            TextField(
-              controller: toPincodeController,
-              decoration: InputDecoration(
-                labelText: 'Enter Pincode',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Article Details',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.red.shade400, // Heading color
-              ),
-            ),
-            DropdownButton<String>(
-              value: itemType,
-              hint: Text('Select Item Type'),
-              items: ['Document', 'Parcel'].map((item) {
-                return DropdownMenuItem(
-                  value: item,
-                  child: Text(item),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  itemType = value;
-                });
-              },
-            ),
-            TextField(
-              controller: weightController,
-              decoration: InputDecoration(
-                labelText: 'Weight (in gms)',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            TextField(
-              controller: lengthController,
-              decoration: InputDecoration(
-                labelText: 'Length (in cm)',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Send To',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Heading color
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Select State:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      value: toState,
+                      isExpanded: true,
+                      hint: Text('Choose a state'),
+                      items: stateCityMap.keys.map((state) {
+                        return DropdownMenuItem(
+                          value: state,
+                          child: Text(
+                            state,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          toState = value;
+                          toCity = null; // Reset city when state is changed
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Select City:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      value: toCity,
+                      isExpanded: true,
+                      hint: Text('Choose a city'),
+                      items: toState == null
+                          ? []
+                          : stateCityMap[toState]!.map((city) {
+                        return DropdownMenuItem(
+                          value: city,
+                          child: Text(
+                            city,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          toCity = value;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Enter Pincode:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    TextField(
+                      controller: toPincodeController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Enter pincode',
+                        hintStyle: TextStyle(color: Colors.black), // Hint text color
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white, // Background color
+                      ),
+                      style: TextStyle(color: Colors.black), // Text color
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Article Details',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red.shade400, // Heading color
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Select Item Type:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      value: itemType,
+                      isExpanded: true,
+                      hint: Text('Choose item type'),
+                      items: ['Document', 'Parcel'].map((item) {
+                        return DropdownMenuItem(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          itemType = value;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Weight (in grams):',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    TextField(
+                      controller: weightController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Enter weight',
+                        hintStyle: TextStyle(color: Colors.black), // Hint text color
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white, // Background color
+                      ),
+                      style: TextStyle(color: Colors.black), // Text color
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Length (in cm):',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black, // Label color
+                      ),
+                    ),
+                    TextField(
+                      controller: lengthController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: 'Enter length',
+                        hintStyle: TextStyle(color: Colors.black), // Hint text color
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white, // Background color
+                      ),
+                      style: TextStyle(color: Colors.black), // Text color
+                    ),
+                  ],
                 ),
               ),
             ),
             SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                  onPressed: () {
-                    if (toState != null &&
-                        toCity != null &&
-                        toPincodeController.text.isNotEmpty &&
-                        itemType != null &&
-                        weightController.text.isNotEmpty &&
-                        lengthController.text.isNotEmpty) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PickupAddressScreen(
-                            toState: toState!,
-                            toCity: toCity!,
-                            toPincode: toPincodeController.text,
-                            itemType: itemType!,
-                            weight: weightController.text,
-                            length: lengthController.text,
-                          ),
+                onPressed: () {
+                  if (toState != null &&
+                      toCity != null &&
+                      toPincodeController.text.isNotEmpty &&
+                      itemType != null &&
+                      weightController.text.isNotEmpty &&
+                      lengthController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PickupAddressScreen(
+                          toState: toState!,
+                          toCity: toCity!,
+                          toPincode: toPincodeController.text,
+                          itemType: itemType!,
+                          weight: weightController.text,
+                          length: lengthController.text,
                         ),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please fill all the fields')),
-                      );
-                    }
-                  },
-
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Please fill all the fields')),
+                    );
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade400, // Button color
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Rounded button edges
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10), // Smaller button
                 ),
                 child: Text(
                   'Confirm Details',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16, // Smaller font size
+                    fontWeight: FontWeight.bold, // Bold text on the button
+                  ),
                 ),
               ),
             ),

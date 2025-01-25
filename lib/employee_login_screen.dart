@@ -22,38 +22,6 @@ class EmployeeLoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Handle Facebook Login
-                      },
-                      icon: Icon(Icons.facebook, color: Colors.blue),
-                      label: Text('Facebook'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        minimumSize: Size(150, 50),
-                        side: BorderSide(color: Colors.redAccent),
-                      ),
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Handle Google Login
-                      },
-                      icon: Icon(Icons.g_mobiledata, color: Colors.red),
-                      label: Text('Google'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        minimumSize: Size(150, 50),
-                        side: BorderSide(color: Colors.redAccent),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Text('Or', style: TextStyle(color: Colors.grey)),
-                SizedBox(height: 20),
                 // Employee ID Field
                 TextField(
                   decoration: InputDecoration(

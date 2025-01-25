@@ -54,7 +54,7 @@ class _AvailableTimeSlotScreenState extends State<AvailableTimeSlotScreen> {
     return Scaffold(
       backgroundColor: Colors.orange.shade50,
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.red.shade300,
         title: Text('Available Time Slot'),
       ),
       body: timeSlots.isEmpty

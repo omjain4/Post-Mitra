@@ -6,7 +6,7 @@ class ThankYouScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.orange.shade50, // Light background color
       appBar: AppBar(
-        backgroundColor: Colors.redAccent, // AppBar color
+        backgroundColor: Colors.red.shade300, // AppBar color
         title: Text(
           'Thank You',
           style: TextStyle(color: Colors.white), // AppBar title color
@@ -45,7 +45,7 @@ class ThankYouScreen extends StatelessWidget {
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red.shade400, // Button background color
+                backgroundColor: Colors.red.shade300, // Button background color
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15), // Button size
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10), // Rounded button corners

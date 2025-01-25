@@ -63,7 +63,9 @@ class _PickupAddressScreenState extends State<PickupAddressScreen> {
               controller: pickupNameController,
               decoration: InputDecoration(
                 labelText: 'Name',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
+                labelStyle: TextStyle(color: Colors.black), // Label color
+                filled: true,
+                fillColor: Colors.white, // Background color of the text box
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -74,7 +76,9 @@ class _PickupAddressScreenState extends State<PickupAddressScreen> {
               controller: pickupAddressController,
               decoration: InputDecoration(
                 labelText: 'Address',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
+                labelStyle: TextStyle(color: Colors.black), // Label color
+                filled: true,
+                fillColor: Colors.white, // Background color of the text box
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -85,7 +89,9 @@ class _PickupAddressScreenState extends State<PickupAddressScreen> {
               controller: pickupPincodeController,
               decoration: InputDecoration(
                 labelText: 'Pincode',
-                labelStyle: TextStyle(color: Colors.red.shade400), // Label color
+                labelStyle: TextStyle(color: Colors.black), // Label color
+                filled: true,
+                fillColor: Colors.white, // Background color of the text box
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),

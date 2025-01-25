@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,  // Center the elements
               children: [
                 Text(
                   'Login',
@@ -24,33 +24,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.facebook, color: Colors.blue),
-                      label: Text('Facebook'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        minimumSize: Size(150, 50),
-                        side: BorderSide(color: Colors.redAccent),
-                      ),
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.g_mobiledata, color: Colors.red),
-                      label: Text('Google'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        minimumSize: Size(150, 50),
-                        side: BorderSide(color: Colors.redAccent),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Text('Or', style: TextStyle(color: Colors.grey)),
+                // Removed Facebook and Google buttons
                 SizedBox(height: 20),
                 TextField(
                   decoration: InputDecoration(
@@ -102,8 +76,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
+                          MaterialPageRoute(builder: (context) => SignUpScreen()),
                         );
                       },
                       child: Text('Sign Up'),
@@ -111,21 +84,27 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-                Divider(color: Colors.grey, thickness: 1),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EmployeeLoginScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Employee Login',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.redAccent,
-                      fontWeight: FontWeight.bold,
+
+                // Employee Login button pushed towards the bottom
+                Align(
+                  alignment: Alignment.bottomCenter,  // Push Employee Login to the bottom
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EmployeeLoginScreen()),
+                        );
+                      },
+                      child: Text(
+                        'Employee Login',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),
